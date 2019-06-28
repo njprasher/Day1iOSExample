@@ -74,5 +74,10 @@ class ViewController: UIViewController {
             self.lblMessage.text = "Please enter both as numbers"
         }
     }
+    @IBAction func btnClear(_ sender: UIButton) {
+        self.txtMessage.text = ""
+        self.txtMessage2.text = ""
+        self.lblMessage.text = "Answer"
+    }
 }
 
