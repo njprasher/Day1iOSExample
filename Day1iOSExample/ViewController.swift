@@ -22,62 +22,59 @@ class ViewController: UIViewController {
     @IBAction func btnAdd(_ sender: UIButton) {
         let x = Float(self.txtMessage.text!)
         let y = Float(self.txtMessage2.text!)
-        if x != nil{
-            if y != nil{
+        if x != nil && y != nil{
                 self.lblMessage.text = String(x! + y!)
-            }else{
-                self.lblMessage.text = "Please enter both as numbers"
-                }
-        }else{
-            self.lblMessage.text = "Please enter both as numbers"
-        }
+            }
     }
     
     @IBAction func btnMul(_ sender: UIButton) {
         let x = Float(self.txtMessage.text!)
         let y = Float(self.txtMessage2.text!)
-        if x != nil{
-            if y != nil{
-                self.lblMessage.text = String(x! * y!)
-            }else{
-                self.lblMessage.text = "Please enter both as numbers"
-            }
-        }else{
-            self.lblMessage.text = "Please enter both as numbers"
+        if x != nil && y != nil{
+            self.lblMessage.text = String(x! * y!)
         }
     }
     
     @IBAction func btnSub(_ sender: UIButton) {
         let x = Float(self.txtMessage.text!)
         let y = Float(self.txtMessage2.text!)
-        if x != nil{
-            if y != nil{
-                self.lblMessage.text = String(x! - y!)
-            }else{
-                self.lblMessage.text = "Please enter both as numbers"
-            }
-        }else{
-            self.lblMessage.text = "Please enter both as numbers"
+        if x != nil && y != nil{
+            self.lblMessage.text = String(x! - y!)
         }
     }
     
     @IBAction func btnDiv(_ sender: UIButton) {
         let x = Float(self.txtMessage.text!)
         let y = Float(self.txtMessage2.text!)
-        if x != nil{
-            if y != nil{
-                self.lblMessage.text = String(x! / y!)
-            }else{
-                self.lblMessage.text = "Please enter both as numbers"
-            }
-        }else{
-            self.lblMessage.text = "Please enter both as numbers"
+        if x != nil && y != nil{
+            self.lblMessage.text = String(x! / y!)
         }
     }
+    
     @IBAction func btnClear(_ sender: UIButton) {
         self.txtMessage.text = ""
         self.txtMessage2.text = ""
         self.lblMessage.text = "Answer"
+    }
+    
+    
+    @IBAction func btnMessage(_ sender: UIButton) {
+        let x = Float(self.txtMessage.text!)
+        let y = Float(self.txtMessage2.text!)
+        if x == nil && y == nil{
+        self.lblMessage.text = "Are \(self.txtMessage.text!) and \(self.txtMessage2.text!) numbers?"
+        }else{
+            if x == nil || y == nil{
+                if x == nil{
+                self.lblMessage.text = "Is \(self.txtMessage.text!) a number?"
+                }else{
+                    if y == nil{
+                    self.lblMessage.text = "Is \(self.txtMessage2.text!) a number?"
+                    }
+                }
+                
+            }
+        }
     }
 }
 
