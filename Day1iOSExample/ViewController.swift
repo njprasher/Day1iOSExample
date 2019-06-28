@@ -20,8 +20,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnAdd(_ sender: UIButton) {
-        let x = Int(self.txtMessage.text!)
-        let y = Int(self.txtMessage2.text!)
+        let x = Float(self.txtMessage.text!)
+        let y = Float(self.txtMessage2.text!)
         if x != nil{
             if y != nil{
                 self.lblMessage.text = String(x! + y!)
@@ -32,5 +32,21 @@ class ViewController: UIViewController {
             self.lblMessage.text = "Please enter both as numbers"
         }
     }
+    
+    @IBAction func btnMul(_ sender: UIButton) {
+        let x = Float(self.txtMessage.text!)
+        let y = Float(self.txtMessage2.text!)
+        if x != nil{
+            if y != nil{
+                self.lblMessage.text = String(x! * y!)
+            }else{
+                self.lblMessage.text = "Please enter both as numbers"
+            }
+        }else{
+            self.lblMessage.text = "Please enter both as numbers"
+        }
+    }
+    
+    
 }
 
