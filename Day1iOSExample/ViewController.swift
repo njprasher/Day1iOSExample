@@ -47,6 +47,32 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func btnSub(_ sender: UIButton) {
+        let x = Float(self.txtMessage.text!)
+        let y = Float(self.txtMessage2.text!)
+        if x != nil{
+            if y != nil{
+                self.lblMessage.text = String(x! - y!)
+            }else{
+                self.lblMessage.text = "Please enter both as numbers"
+            }
+        }else{
+            self.lblMessage.text = "Please enter both as numbers"
+        }
+    }
     
+    @IBAction func btnDiv(_ sender: UIButton) {
+        let x = Float(self.txtMessage.text!)
+        let y = Float(self.txtMessage2.text!)
+        if x != nil{
+            if y != nil{
+                self.lblMessage.text = String(x! / y!)
+            }else{
+                self.lblMessage.text = "Please enter both as numbers"
+            }
+        }else{
+            self.lblMessage.text = "Please enter both as numbers"
+        }
+    }
 }
 
