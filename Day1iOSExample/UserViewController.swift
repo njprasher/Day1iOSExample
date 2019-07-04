@@ -9,10 +9,16 @@
 import UIKit
 
 class UserViewController: UIViewController {
-
+    
+    var emailId: String?
+    @IBOutlet weak var userEmailShow: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let e = emailId{
+            print(e)
+            self.userEmailShow.text = "Welcome, \(e)"
+        }
         // Do any additional setup after loading the view.
     }
     

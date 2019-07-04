@@ -14,43 +14,37 @@ class FirstViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func btnLogin(_ sender: UIButton){
-        //Step - 1
-        //Create AlertController Object
-        let alert  =
-            UIAlertController(title: "Message", message: "Welcome to iOS Programming", preferredStyle: UIAlertController.Style.actionSheet)
+    @IBOutlet weak var txtUserEmail: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
+    
+    @IBAction func loginClick(_ sender: UIButton) {
+        if(txtUserEmail.text! == "admin@gmail.com" && txtPassword.text! == "admin123"){
+                print("Hello, My First Click: ", txtUserEmail.text!)
+                
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+                
+        let userVC = sb.instantiateViewController(withIdentifier: "UserVC") as! UserViewController
+        userVC.emailId = self.txtUserEmail.text
         
-        //Step - 2
-        //OK Button add
-        let actionOk = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
-            print("Alert OK")
+        self.navigationController?.pushViewController(userVC, animated: true)
+            }else{
+            //user not exist
             
-        })
+            let alert = UIAlertController(title: "Error", message: "User Email / Password Incorrect", preferredStyle: UIAlertController.Style.alert)
+            //Step 2 OK Button Add
+            let actionOk = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+            let actionDis = UIAlertAction(title: "Destructive", style: UIAlertAction.Style.destructive, handler: nil)
+            let actionCanel = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+            
+            //Step 3 Add button To Alert
+            alert.addAction(actionOk)
+            alert.addAction(actionCanel)
+            alert.addAction(actionDis)
+            
+            
+            // Step 4 Present Alert Box To user
+            self .present(alert, animated: true ,completion: nil)
+        }
         
-        //Step - 3
-        alert.addAction(actionOk)
-        
-        //Step - 2 Repeated
-        //Cancel Button add
-        let actionCancel = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
-        
-        //Step - 3 Repeated
-        alert.addAction(actionCancel)
-        
-        //Step - 2 Repeated
-        //Ignore Button add
-        let actionIgnore = UIAlertAction(title: "Ignore", style: UIAlertAction.Style.destructive, handler: nil)
-        
-        //Step - 3 Repeated
-        alert.addAction(actionIgnore)
-        
-        
-        //Step - 4
-        //Present Alert Dialog to the user
-        self.present(alert, animated: true, completion: nil)
+            }
     }
-    
-    
-   
-
-}
